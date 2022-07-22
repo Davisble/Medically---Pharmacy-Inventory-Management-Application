@@ -1,0 +1,114 @@
+﻿<Window x:Name="UserSignUp_window" x:Class="Medically.UserSignUp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Medically"
+        mc:Ignorable="d"
+        Title="Create New User" Height="650" Width="800" ResizeMode="CanMinimize" IsTabStop="False" SizeToContent="Manual" WindowState="Normal"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{x:Null}"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+
+    <materialDesign:Card UniformCornerRadius="15" Background="{DynamicResource MaterialDesignPaper}" 
+            Margin="25" materialDesign:ShadowAssist.ShadowDepth="Depth4">
+
+        <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHost" >
+
+            <StackPanel>
+
+                <materialDesign:PopupBox HorizontalAlignment="Right" Margin="0 20 20 0"
+                        PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Height="25">
+
+                    <StackPanel>
+
+                        <StackPanel Margin="16 10 0 6" Orientation="Horizontal" HorizontalAlignment="Center">
+
+                            <TextBlock VerticalAlignment="Center" Text="Dark Mode" />
+
+                            <ToggleButton Cursor="Hand" ToolTip="Enable Dark Mode" Margin="12 0 8 0"
+                                x:Name="themeToggle" IsChecked="{Binding IsDarkTheme}" Click="toggleTheme" />
+
+                        </StackPanel>
+
+                        <Button x:Name="helpme_btn" ToolTip="Have trouble logging in?" Margin="0 8 0 0" Content="Help me"/>
+
+                        <Button x:Name="btn_exit" ToolTip="Close Application" Content="Exit Application" Click="exitApp" />
+
+                    </StackPanel>
+
+                </materialDesign:PopupBox>
+
+                <TextBlock Margin="75 10 0 0" HorizontalAlignment="Left" FontSize="32" FontWeight="Bold" 
+                        Text="Sign Up" />
+                <TextBlock Margin="75 10 0 0" HorizontalAlignment="Left" FontSize="14" FontWeight="SemiBold" 
+                        Text="It's quick and easy!" />
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="75 20 0 0">
+
+                    <TextBox x:Name="txtFirstName" Width="200" FontSize="14"
+                        materialDesign:HintAssist.Hint="First Name" BorderThickness="2"
+                        BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="0,0,10,0"/>
+
+                    <TextBox x:Name="txtLastName" Width="200" FontSize="14"
+                        materialDesign:HintAssist.Hint="Last Name" BorderThickness="2"
+                        BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="10,0,0,0"/>
+
+                </StackPanel>
+
+                <TextBox Margin="75 20 0 0" x:Name="txtNewUserID" Width="300" FontSize="14"
+                        materialDesign:HintAssist.Hint="Enter New User ID" BorderThickness="2"
+                        BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource
+                        MaterialDesignOutlinedTextBox}" HorizontalAlignment="Left"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="75 20 0 0">
+
+                    <PasswordBox Margin="0 0 10 0" x:Name="txtNewUserPass" Width="300" FontSize="14"
+                            materialDesign:HintAssist.Hint="Enter New Password" BorderThickness="2"
+                            BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{DynamicResource
+                        MaterialDesignOutlinedPasswordBox}" HorizontalAlignment="Left"/>
+
+                    <PasswordBox Margin="10 0 0 0" x:Name="txtConNewUserPass" Width="300" FontSize="14"
+                            materialDesign:HintAssist.Hint="Confirm New Password" BorderThickness="2"
+                            BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{DynamicResource
+                        MaterialDesignOutlinedPasswordBox}" HorizontalAlignment="Left"/>
+
+                </StackPanel>
+
+                <DatePicker Margin="75 20 0 0" x:Name="dateUserDOB" Width="150" FontSize="14"
+                        materialDesign:HintAssist.Hint="Date of Birth" BorderThickness="3"
+                        BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource
+                        MaterialDesignOutlinedDatePicker}" HorizontalAlignment="Left"/>
+
+                <ComboBox Margin="75 20 0 0" x:Name="comboBoxUserPosition" Width="150" FontSize="14"
+                        materialDesign:HintAssist.Hint="Position" BorderThickness="2"
+                        BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource
+                        MaterialDesignOutlinedComboBox}" HorizontalAlignment="Left">
+                    <ComboBoxItem Content="Operator"/>
+                    <ComboBoxItem Content="Product Service"/>
+                    <ComboBoxItem Content="Developer"/>
+                    <ComboBoxItem Content="Admin" IsEnabled="False"/>
+                </ComboBox>
+                <StackPanel Orientation="Horizontal" Margin="75,20,75,0">
+
+                    <Button x:Name="cancelSignUpBTN" Style="{StaticResource MaterialDesignOutlinedLightButton}"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth0" Height="53" Width="150"
+                        materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Cancel" BorderThickness="2" Click="cancelSignUpBTN_Click"/>
+
+
+                    <Button x:Name="SignUpBtn" Style="{StaticResource MaterialDesignFlatMidBgButton}" 
+                        materialDesign:ShadowAssist.ShadowDepth="Depth0" Height="53" Width="175" 
+                        materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Sign Up" HorizontalAlignment="Right" Margin="275,0,0,0" Click="SignUpBtn_Click"/>
+
+                </StackPanel>
+
+
+            </StackPanel>
+
+        </materialDesign:DialogHost>
+
+    </materialDesign:Card>
+</Window>

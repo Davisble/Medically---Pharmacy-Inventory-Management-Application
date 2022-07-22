@@ -1,0 +1,78 @@
+﻿<Window x:Class="Medically.Homepage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Medically"
+        mc:Ignorable="d"
+        Title="Homepage" Height="900" Width="1200" ResizeMode="CanMinimize" IsTabStop="False" SizeToContent="Manual" WindowState="Normal"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{x:Null}"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+
+    <materialDesign:Card UniformCornerRadius="15" Background="{DynamicResource MaterialDesignPaper}" 
+        Margin="25" materialDesign:ShadowAssist.ShadowDepth="Depth4">
+
+        <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHost" >
+
+            <StackPanel>
+
+                <materialDesign:PopupBox HorizontalAlignment="Right" Margin="0 20 20 0"
+                    PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Height="25">
+
+                    <StackPanel>
+
+                        <StackPanel Margin="16 10 0 6" Orientation="Horizontal" HorizontalAlignment="Center">
+
+                            <TextBlock VerticalAlignment="Center" Text="Dark Mode" />
+
+                            <ToggleButton Cursor="Hand" ToolTip="Enable Dark Mode" Margin="12 0 8 0"
+                            x:Name="themeToggle" IsChecked="{Binding IsDarkTheme}" Click="toggleTheme" />
+
+                        </StackPanel>
+
+                        <Button x:Name="logout_btn" ToolTip="Logout" Margin="0 8 0 0" Content="Logout" Click="logoutBtn_Click"/>
+
+                        <Button x:Name="btn_exit" ToolTip="Close Application" Content="Exit Application" Click="exitApp" />
+
+                    </StackPanel>
+
+                </materialDesign:PopupBox>
+
+                <Border Margin="0 -45 0 0" x:Name="userProfile" Width="250" Height="250" HorizontalAlignment="Left" 
+                        BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignToolBarMainPanelBorderStyle}" 
+                        BorderThickness="2">
+                    <StackPanel>
+                        <Image Margin="0 40 0 5" Source="/aid_logo.png" Height="100" />
+                        <Label x:Name="userID_label"  Content="UserID | Name" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <Label x:Name="userPosition_label"  Content="Position" FontSize="14" FontWeight="SemiBold" HorizontalAlignment="Center" Foreground="{DynamicResource MaterialDesignToolTipBackground}"/>
+                    </StackPanel>
+                </Border>
+                <Menu x:Name="homepageNav" Height="600" Width="250" HorizontalAlignment="Left" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" 
+                      Style="{StaticResource MaterialDesignMenu}" BorderThickness="2" Background="{DynamicResource PrimaryHueDarkBrush}" FontFamily="Bahnschrift SemiLight" 
+                      VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                    <MenuItem x:Name="navHome_btn" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Header="Home" FontFamily="Bahnschrift" FontSize="24" Padding="14,10,14,10" Width="250" Height="50"/>
+                    <MenuItem x:Name="navInv_btn" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" FontSize="24" Header="Inventory" VerticalContentAlignment="Top" Padding="14,10,14,10" UseLayoutRounding="False" Width="250" Height="50" HorizontalContentAlignment="Left">
+                        <MenuItem FontSize="20" Header="Incoming Medicine" Foreground="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" Margin="0,5,0,5"/>
+                        <MenuItem FontSize="20" Header="Outgoing Medicine" Foreground="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" Margin="0,5,0,5"/>
+                        <MenuItem FontSize="20" Header="Drug Information" Foreground="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" Margin="0,5,0,5"/>
+                        <MenuItem FontSize="20" Header="List of All Medicine" Foreground="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" Margin="0,5,0,5"/>
+                    </MenuItem>
+                    <MenuItem x:Name="navMark_btn" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" FontSize="24" Header="Marketing" Padding="14,10,14,10" Width="250" Height="50">
+                        <MenuItem FontSize="20" Header="Manage Sales" Foreground="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" Margin="0,5,0,5"/>
+                        <MenuItem FontSize="20" Header="View All Sales" Foreground="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" Margin="0,5,0,5"/>
+                    </MenuItem>
+                    <MenuItem x:Name="navCal_btn" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" FontSize="24" Height="50" Header="Calender" Padding="16,10,16,10" Width="250"/>
+                    <MenuItem x:Name="navSet_btn" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" FontSize="24" Height="50" Header="Settings" Padding="16,10,16,10" VerticalContentAlignment="Top" VerticalAlignment="Bottom" Width="250" Margin="0,300,0,0"/>
+                    <MenuItem x:Name="navLogout_btn" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" FontSize="24" Height="50" Header="Logout" Padding="16,10,16,10" Width="250" Click="navLogout_btn_Click"/>
+                </Menu>
+                <Calendar Width="500" Height="249" VerticalAlignment="Stretch"/>
+            </StackPanel>
+
+        </materialDesign:DialogHost>
+
+    </materialDesign:Card>
+</Window>
